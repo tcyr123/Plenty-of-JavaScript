@@ -1,0 +1,108 @@
+<html>
+    <head>
+        <title>Luncheon</title>
+        <script>
+            function pickEntree(picked)
+            {
+                var lunch = document.getElementById(picked).value;
+                document.getElementById('main_dish').innerHTML = lunch.toString();
+            }
+            function customerInfo(cName)
+            {
+                var dinerName = document.getElementById(cName).value;
+                document.getElementById('cust_name').innerHTML = dinerName;
+            }
+            function customerPhone(cell)
+            {
+                var phone = document.getElementById(cell).value;
+                document.getElementById('cell_phone').innerHTML = phone;
+            }
+            function pickSides()
+            {
+                var flag = false;
+                var i = 0;
+                var side1 = "";
+                var side2 = "";
+                for (i = 1; i <= 7; i++)
+                {
+                    if ((document.getElementById(i).checked === true) && (flag === false))
+                    {
+                        side1 = document.getElementById(i).value;
+                        flag = true;
+                    } else if ((document.getElementById(i).checked === true) && (flag === true))
+                        side2 = document.getElementById(i).value;
+
+                }
+                document.getElementById('side_one').innerHTML = side1;
+                document.getElementById('side_two').innerHTML = side2;
+            }
+            function pickDrink(drink) {
+                document.getElementById('drinkChoice').innerHTML = drink.toString();
+            }
+
+        </script>
+        <style type="text/css">
+            <!--
+            body {
+                margin: 5%;
+                background-color: beige;
+            }
+            -->
+        </style>
+    </head>
+
+    <body>
+        <form name="order" method = "post" id = "dinner" action="mailto:manager@mealstogo.net?subject=Dinner Order" enctype="text/plain" >
+            <input type ="hidden" name ="meal" id ="dinner" value = "dinner choice" />
+            <h2><br />Select Your Meal</h2>
+            <div style="width: 80%;">
+                <div style="width: 40%; float: left;">
+                    <fieldset><legend>Your Information</legend>
+                        <h3>Enter the following information:</h3>
+                        <label>Your name:<br /></label> <input type="text" name="dinername" id="dinername" size = "30" value = ""/>
+                        <input type ="button" onclick="customerInfo('dinername')" value = "ok">
+                        <p>We will call your cell phone when your order is ready.<br /> 
+                            <label>Phone:<br /> </label><input type="text" name="phone" id="phone" size="30" value = ""/>
+                        <input type ="button" onclick="customerPhone('phone')" value = "ok"><br /></fieldset></div>
+                <div style=" width: 25%; float: left;"><fieldset><legend>Main Course</legend>
+                        <h3>Pick your Lunch:</h3>
+                        <input type="radio" name="entree" id="eggs" value="Greasy Eggs" onclick="pickEntree('eggs')">Greasy Eggs<br />
+                        <input type="radio" name="entree" id="chicken" value="Fried Chicken Sandwich" onclick="pickEntree('chicken')">Fried Chicken Sandwich<br />
+                        <input type="radio" name="entree" id="soup" value="Lentil Soup" onclick="pickEntree('soup')">Lentil Soup<br />
+                        <input type="radio" name="entree" id="fish" value="Tuna Taco" onclick="pickEntree('fish')">Fish Taco<br /><br />
+                    </fieldset></div>
+                <div style="width: 25%; float: left;"><fieldset><legend>Side Dishes</legend>
+                        <h3>Pick two side dishes</h3>
+                        <input type="checkbox" name="sides" id="1" value="French Fries" >French Fries<br />
+                        <input type="checkbox" name="sides" id="2" value="Baked Potato">Baked Potato<br />
+                        <input type="checkbox" name="sides" id="3" value="Cole Slaw">Cole Slaw<br />
+                        <input type="checkbox" name="sides" id="4" value="Garden Salad">Garden Salad<br />
+                        <input type="checkbox" name="sides" id="5" value="Mixed Vegetables">Mixed Vegetables<br />
+                        <input type="checkbox" name="sides" id="6" value="Macaroni and Cheese">Macaroni and Cheese<br />
+                        <input type="checkbox" name="sides" id="7" value="Applesauce">Applesauce<br />
+                        <input type ="button" onclick="pickSides()" value = "Enter my side dish selections"></fieldset></div>
+                <div style="width: 25%; float: left;"><fieldset><legend>Drinks</legend>
+                        <select name="drink" size="3" id="drinkOrder">
+                            <option value = "Soda" onclick="pickDrink('Soda')" >Soda</option>
+                            <option value = "Tea" onclick="pickDrink('Tea')" >Tea</option>
+                            <option value = "Water" onclick="pickDrink('Water')" >Water</option>
+                        </select>    
+                    </fieldset>
+                </div>
+            </div>
+
+            <div style="clear:both;"></div>
+            <div ><input type="reset" value="ooops! I made a mistake. Let me start over."><br /></div>
+            <div style="width: 40%; float: left;"><h3>Your meal:</h3>
+                <p>Your name: <span  id = "cust_name">&nbsp;</span> <br />
+                    Your contact phone: <span  id = "cell_phone">&nbsp;</span> <br />
+                    Luncheon selected: <span  id = "main_dish">&nbsp;</span> <br />
+                    First side dish selected: <span  id = "side_one">&nbsp;</span> <br />
+                    Second side dish selected: <span  id = "side_two">&nbsp;</span> <br/>
+                    Your Drink: <span id ="drinkChoice" >&nbsp;</span></p></div>
+            <div style="width: 40%; float: left;"><h3>Comments or questions:</h3>
+                <textarea border-style:bold name = "dinnerorder" id = "dinner" rows = "10" cols = "30">Enter your comments or questions here</textarea> </div><div style="clear:both;"></div>
+            <div><input type = "submit" value="submit my order"><br /></div>
+        </form>
+    </body>
+</html>

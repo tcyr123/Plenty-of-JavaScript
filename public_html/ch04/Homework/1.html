@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>Blast Off Counter</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+
+            var i = 10;
+            function count() {
+                if (i > 0) {
+                    document.getElementById("print").innerHTML = "<h2>" + i + "</h2>";
+                    i--;
+                }
+                else{
+                    document.getElementById("print").innerHTML = "<h2>BLASTOFF!</h2>";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1 align ="center">Press the button to start the countdown!</h1>
+        <p align ="center"><input type="button" id="countdown" value="Click to start countdown!" onclick="setInterval(count, 1000)"></p>
+        <h2 align ="center" style="color:#A00" id="print">&nbsp;</h2>
+    </body>
+</html>

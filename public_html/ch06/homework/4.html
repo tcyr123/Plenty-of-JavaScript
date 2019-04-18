@@ -1,0 +1,123 @@
+<html>
+    <head>
+        <title>GetYourInfo.com</title>
+        <script>
+            function setYellow(x)
+            {
+                document.getElementById(x).style.background = "yellow";
+            }
+            function setPink(x)
+            {
+                document.getElementById(x).style.background = "pink";
+            }
+            function setGreen(x)
+            {
+                document.getElementById(x).style.background = "green";
+            }
+            function setOrange(x)
+            {
+                document.getElementById(x).style.background = "orange";
+            }
+            function setRed(x)
+            {
+                document.getElementById(x).style.background = "red";
+            }
+            function setPurple(x)
+            {
+                document.getElementById(x).style.background = "purple";
+            }
+             function setGrey(x)
+            {
+                document.getElementById(x).style.background = "grey";
+            }
+            function setBrown(x)
+            {
+                document.getElementById(x).style.background = "brown";
+            }
+            function setTeal(x)
+            {
+                document.getElementById(x).style.background = "teal";
+            }
+
+    
+            function customerPhone() {
+                var num2String = document.getElementById("phone").value.toString();
+                if (!num2String.match(/^\(\d{3}\)\d{3}\-\d{4}$/))
+                    alert("Number is not in the correct format");
+                else
+                    return true;
+                
+            }
+            
+            function username(){
+                var uN = document.getElementById("user").value.toString();
+                if (uN.length < 4 || uN.length > 20)
+                    alert("User Name must be between 4-20 chars!");
+                else
+                    return true;
+                
+            }
+            function password(){
+                var pass = document.getElementById("pw").value.toString();
+                if (pass.match(/(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{4,12}$/))
+                    return true;
+                else
+                    alert("Password is not formatted correctly");
+            }
+            
+            function finalCheck(){
+                if(password() === true && username() === true && customerPhone() === true)
+                    document.getElementById('msg1').innerHTML="Information checks out! Signing In...";
+            }
+        </script>
+        <style type="text/css">
+            
+            body {
+                align-content: center;
+                margin: 5%;
+                background-color: beige;
+            }
+            
+            div{
+               
+            }
+        </style>
+    </head>
+
+    <body>
+        <h2><br />Sign in bellow</h2>
+        <div style="width: 80%;">
+            <div style="width: 40%;">
+                <fieldset><legend></legend>
+                    <h3>Enter the following information:</h3>
+                    <label>First Name:<br /></label> <input type="text" name="Fname" id="Fname" size = "30" onfocus="setYellow(this.id)" value = ""/>
+                    <br/> 
+                    <br/>
+                    <label>Last Name:<br /> </label><input type="text" name="Lname" id="Lname" size="30" onfocus="setPink(this.id)" value = ""/>
+                    <br/> 
+                    <br/>
+                    <label>Street Address:<br /> </label><input type="text" name="Address" id="Address" size="30" onfocus="setGreen(this.id)" value = ""/>
+                    <br/> 
+                    <br/>
+                    <label>City:<br /> </label><input type="text" name="City" id="City" size="30" onfocus="setOrange(this.id)" value = ""/>
+                    <br/> 
+                    <br/>
+                    <label>Zip Code:<br /> </label><input type="text" name="Zcode" id="Zcode" size="30" onfocus="setRed(this.id)" value = ""/>
+                    <br/> 
+                    <br/>
+                    <label>Email Address:<br /> </label><input type="text" name="Email" id="Email" size="30" onfocus="setPurple(this.id)" value = ""/>
+                    <br/> 
+                    <br/>
+                    <label>Phone Number (123)456-7890 format:<br /> </label><input maxLength="13" type="text" name="phone" id="phone" onfocus="setGrey(this.id)"  value = ""/>
+                    <br/> 
+                    <br/>
+                    <label>User Name(b/w 4-20 characters): <br/> </label><input maxLength="21" type="text" name="username" id="user" onfocus="setBrown(this.id)"  value = ""/>
+                    <br/>
+                    <br/>
+                    <label>Password(b/w 4-12,digit,upper, lower,and @#*.): <br/> </label> <input maxLength="13" type="text" name="password" id="pw" onfocus="setTeal(this.id)"  value = ""/>
+                    <p><input type ="button" onclick="customerPhone(); username(); password();finalCheck()" value = "Sign In"></p><br />
+                </fieldset></div>
+        </div>
+        <p align="center" id="msg1" style="color: black; font-size: 25">Waiting to sign you in;</p>
+    </body>
+</html>

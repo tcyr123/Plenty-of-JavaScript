@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bacteria Estimator</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script>
+            var array = [];
+            function ask()
+            {
+                var line = document.getElementById("message").value;
+                array = line.toString().split('');
+                array.reverse();
+                line = array.join("");
+                document.getElementById("message").value = line;
+            }
+        </script>
+        <h1 align ="center">Text Reverser</h1>
+        <p align ="center"><input type="text" id="message" value=""></p>
+        <p align ="center"><input type="button" id="we" value="Reverse" onclick="ask()"></p>
+        <h2 align ="center" style="color:#A00" id="print">&nbsp;</h2>
+    </body>
+</html>

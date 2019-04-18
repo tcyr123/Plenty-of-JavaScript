@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>Math Facts</title>
+<script type="text/javascript" src="funk.js"></script>
+<script>
+function Choice()
+{
+	var choice = prompt("Choose one: \n\ \n\ a - X^Y \n\ \n\ b - area of a right triangle \n\ \n\
+ c - distance btwn two points \n\ ");
+        var numOne = prompt("Enter the X", "");
+        var numTwo = prompt("Enter the Y", "");
+        if(choice === "a")
+             one(numOne, numTwo);
+        else if(choice === "b")
+                 two(numOne, numTwo);
+        else if(choice === "c")
+                three(numOne, numTwo);
+        else
+            alert("invalid choice");
+}
+</script>
+</head>
+<body><table align="center" width = "70%"><tr><td><br />
+                <h1>choose between the three options</h1>
+        <input type ="button" onclick="Choice()" value = "Options"></table><br />
+<h3><span id = "result">&nbsp;</span></h3>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+    <head>
+        <title>Colors and Fonts</title>
+        <script type ="text/javascript">
+            function pageColor(selectedColor)
+            {
+                switch (selectedColor.toString())
+                {
+                    case "red":
+                        document.body.bgColor = "PaleVioletRed";
+                        break;
+                    case "green":
+                        document.body.bgColor = "Olive";
+                        break;
+                    case "blue":
+                        document.body.bgColor = "Teal";
+                        break;
+                    case "yellow":
+                        document.body.bgColor = "Moccasin";
+                        break;
+                    case "lavender":
+                        document.body.bgColor = "lavender";
+                        break;
+                    
+                }
+            }
+            function customize(fontColor) {
+
+                switch (fontColor.toString())
+                {
+                    case "red":
+                        document.getElementById("p1").style.color = "red";
+                        document.getElementById("p1").style.fontFamily = "calibri";
+                        break;
+                    case "green":
+                        document.getElementById("p1").style.color = "green";
+                        document.getElementById("p1").style.fontFamily = "monospace";
+                        break;
+                    case "blue":
+                        document.getElementById("p1").style.color = "blue";
+                        document.getElementById("p1").style.fontFamily = "sans-serif";
+                        break;
+                    case "yellow":
+                        document.getElementById("p1").style.color = "yellow";
+                        document.getElementById("p1").style.fontFamily = "times";
+                        break;
+                    case "lavender":
+                        document.getElementById("p1").style.color = "lavender";
+                        document.getElementById("p1").style.fontFamily = "courier";
+                        break;
+                   
+                }
+
+            }
+
+        </script>
+    </<head>
+    <body>
+        <table align ="center" width ="70%"><tr><td>
+                    <h1>&nbsp;</h2>
+                        <div id="p1">
+                            <h1 id="p1">Sample Text</h1>
+                            <table align = "center" width = "60%">
+                                <tr><td colspan = "2"><h3 id="p1">Change Colors!</h3></td></tr>
+                                <tr><td>
+                                        <h3>Select Background!</h3>
+                                        <select name="background" size = "1" id="background">
+                                            <option value = "blue" onclick="pageColor('blue')">Blue</option>
+                                            <option value = "yellow" onclick="pageColor('yellow')">Yellow</option>
+                                            <option value = "red" onclick="pageColor('red')">Red</option>
+                                            <option value = "green" onclick="pageColor('green')">Green</option>
+                                            <option value = "lavender" onclick="pageColor('lavender')">Lavender</option>
+                                        </select>
+                                    </td><td>
+                                        <h3>Select Text Color!</h3>
+                                        <select name="textColor" size = "1" id="textColor">
+                                            <option value = "blue" onclick="customize('blue')">Blue</option>
+                                            <option value = "yellow" onclick="customize('yellow')">Yellow</option>
+                                            <option value = "red" onclick="customize('red')">Red</option>
+                                            <option value = "green" onclick="customize('green')">Green</option>
+                                            <option value = "lavender" onclick="customize('lavender')">Lavender</option>
+                                        </select>
+                                    </td></tr>
+                            </table>
+                            
+                        </div>
+                </td></tr></table></body>
+</html>

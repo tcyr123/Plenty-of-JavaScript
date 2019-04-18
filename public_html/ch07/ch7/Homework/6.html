@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <title>Math Answers</title>
+        <style>
+            body {
+                margin: 5%;
+                background-color: beige;
+            }
+        </style>
+        <script>
+            function ranNum() {
+                var ranNum = parseInt((Math.random() * (21 - 1)) + 1); // random # from 1-20
+                return ranNum;
+            }
+
+            function run() {
+                //reset
+                document.getElementById('correctAnswers').style = 'display: none';
+                
+                for (var j = 0; j < 5; j++) {
+                    for (var i = 0; i < document.getElementById("myTable").rows.length; i++) {
+                        num1 = ranNum();
+                        opp = operation();
+                        num2 = ranNum();
+                        document.getElementById("myTable").rows[i].cells[j].innerHTML = num1 + " " + opp + " " + num2;
+                        var ans = 0;
+                        switch (opp.valueOf()) {
+                            case "+":
+                                ans = (num1 + num2);
+                                break;
+                            case "-":
+                                ans = (num1 - num2);
+                                break;
+                            case "*":
+                                ans = (num1 * num2);
+                                break;
+                            case "/":
+                                ans = (num1 / num2);
+                                break;
+                        }
+                        document.getElementById("correctAnswers").rows[i].cells[j].innerHTML = ans.toFixed(2);
+                        document.getElementById("myAnswers").rows[i].cells[j].style="background-color: white";
+                        document.getElementById("myAnswers").rows[i].cells[j].querySelector('input').value="";
+                    }
+                }
+            }
+
+            function operation() {
+                var ranNum1 = parseInt((Math.random() * (5 - 1)) + 1); // random # from 1-4
+                switch (ranNum1) {
+                    case 1:
+                        return"+";
+                        break;
+                    case 2:
+                        return"-";
+                        break;
+                    case 3:
+                        return"*";
+                        break;
+                    case 4:
+                        return"/";
+                        break;
+                }
+            }
+
+            function red() {
+                for (var j = 0; j < 5; j++) {
+                    for (var i = 0; i < document.getElementById("myAnswers").rows.length; i++) {
+                        var mine = document.getElementById("myAnswers").rows[i].cells[j].querySelector('input').value;
+                        var theirs = document.getElementById("correctAnswers").rows[i].cells[j].innerHTML.toString();
+                        if(mine !== theirs){
+                            document.getElementById("myAnswers").rows[i].cells[j].style="background-color: red";
+                        }
+                        else
+                                document.getElementById("myAnswers").rows[i].cells[j].style="background-color: green";
+                    }
+                }
+            }
+            
+        </script>
+    </head>
+    <body>
+
+        <table id="box" width="500"  align="center"><tr><td>
+                    <h3 align="center">Fill the boxes with basic math questions</h3>
+                    <button onclick="run();">Fill</button>
+                    <table id="myTable" border="1px" width="500" align="center" style="text-align: center">
+                        <tr>
+                            <td>Row1 cell1</td>
+                            <td>Row1 cell2</td>
+                            <td>Row1 cell3</td>
+                        </tr>
+                        <tr>
+                            <td>Row2 cell1</td>
+                            <td>Row2 cell2</td>
+                            <td>Row2 cell3</td>
+                        </tr>
+                        <tr>
+                            <td>Row3 cell1</td>
+                            <td>Row3 cell2</td>
+                            <td>Row3 cell3</td>
+                        </tr>
+                        <tr>
+                            <td>Row4 cell1</td>
+                            <td>Row4 cell2</td>
+                            <td>Row4 cell3</td>
+                        </tr>
+                    </table>
+                </td></tr></table>
+        <br/><br/><br/>
+        <table id="box" width="600"  align="center"><tr><td>
+                    <h3 align="center">Answer the questions Here (with exactly 2 decimal points):</h3>
+                    <table id="myAnswers" border="1px" width="50%" align="center">
+                        <tr>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                        </tr>
+                    </table> 
+                    <br/><br/>
+                    <button onclick="document.getElementById('correctAnswers').style = 'display: table';red();">Get Answers</button>
+                    <table style="display:none" id="correctAnswers" border="1px" width="50%" align="center">
+                        <tr>
+                            <td>hidden</td>
+                            <td>hidden</td>
+                            <td>hidden</td>
+                        </tr>
+                        <tr>
+                            <td>hidden</td>
+                            <td>hidden</td>
+                            <td>hidden</td>
+                        </tr>
+                        <tr>
+                            <td>hidden</td>
+                            <td>hidden</td>
+                            <td>hidden</td>
+                        </tr>
+                        <tr>
+                            <td>hidden</td>
+                            <td>hidden</td>
+                            <td>hidden</td>
+                        </tr>
+                    </table> 
+                </td></tr></table>
+        <br><br/>
+
+    </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+  <title>Trips</title>
+<script>
+function getMPG()
+{
+ 	var TripName = prompt("Enter the name of the trip:"," ");
+	var MilesDriven = prompt("Enter the miles driven:"," ");
+        var GallonsUsed = prompt("Enter the gallons used:"," ");
+	document.write('<h1>&nbsp;</h1>');
+	document.write('<table width="40%" align = "center">');
+        document.write('<tr><td>Trip Name</td><td>Miles Driven</td><td>Gallons Used</td><td>Miles per Gallon</td></tr>');
+	while (TripName != "done")
+	{
+		document.write('<tr>');
+		document.write('<td width="50">' + TripName + '</td>');
+		document.write('<td width = "50">' + MilesDriven + '</td>');
+                document.write('<td width = "50">' + GallonsUsed + '</td>');
+                document.write('<td width = "50">' + (MilesDriven/GallonsUsed).toFixed(2) +" mpg" +'</td>');
+		document.write('</tr>');
+		TripName = prompt("Enter the name of the trip or enter 'done' when you're finished:"," ");
+                if(TripName==="done")
+                    break;
+		MilesDriven = prompt("Enter the points this player has or 0 if finished:"," ");
+               GallonsUsed = prompt("Enter the gallons used or 0 if finished:"," ");
+	}
+	document.write('</table>');
+}
+</script>
+</<head>
+<body>
+<table align ="center" width ="70%"><tr><td colspan ="2">
+<h1>&nbsp;</h2>
+<h1>Tripz</h1>
+<h3>Click to calculate MPG</h3>
+<p><input type="button" id="players" value="Calculate" onclick="getMPG();" /></p>
+</td></tr>
+</table></body>
+</html>
+

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bacteria Estimator</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script>
+            var day = 1;
+            function ask()
+            {
+                document.write('<h1>&nbsp;</h1>');
+                document.write('<table width="40%" align = "center">');
+                document.write('<tr><td>Day</td><td>Bacteria</td></tr>');
+
+                var num = prompt("Enter the number of bacteria", 0);
+                while (day < 11) {
+                    var doo = day/10
+                    var current = num * Math.pow(2, doo);
+                    document.write('<tr>');
+                    document.write('<td width="50">' + day + '</td>');
+                    document.write('<td width="50">' + current.toFixed(4) + '</td>');
+                    document.write('</tr>');
+                    day++;
+                }
+            }
+        </script>
+        <h1 align ="center">Bacteria Estimator</h1>
+        <p align ="center" style="font-weight:bold">See the estimate of bacterial growth after 10 days</p>
+        <p align ="center"><input type="button" id="we" value="Next" onclick="ask()"></p>
+        <h2 align ="center" style="color:#A00" id="print">&nbsp;</h2>
+    </body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style type="text/css">
+            body {
+                margin: 5%;
+                background-color: beige;
+            }
+        </style>
+        <title>Dice War</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script>
+            function play() {
+                var playAgain = "y";
+                var youPTS = 0;
+                var compPTS = 0;
+                
+                while(playAgain === "y" && youPTS < 100 && compPTS < 100){
+                var compD1 = num();
+                var compD2 = num();
+                var youD1 = num();
+                var youD2 = num();
+                var youSum = (youD1 + youD2);
+                var compSum = (compD1 + compD2);
+                
+                if(compD1 === compD2){
+                    compPTS++
+                }
+                if(youD1 === youD2){
+                    youPTS++
+                }
+                
+                if(youSum > compSum){
+                    youPTS++;
+                    document.getElementById("score").innerHTML=("YOU SCORE: " + youPTS);
+                    playAgain = prompt("You: " + youD1 + ", " + youD2 + "\n\Comp: " + compD1 + ", " + compD2 +
+                            "\n\YOU WIN!   Play again? (y/n)", "");
+                }
+                else if(youSum < compSum){
+                    compPTS++;
+                    document.getElementById("score2").innerHTML=("COMP SCORE: " + compPTS);
+                    playAgain = prompt("You: " + youD1 + ", " + youD2 + "\n\Comp: " + compD1 + ", " + compD2 +
+                            "\n\YOU LOSE!   Play again? (y/n)", "");
+                }
+                else{
+                    playAgain = prompt("You: " + youD1 + ", " + youD2 + "\n\Comp: " + compD1 + ", " + compD2 +
+                            "\n\TIE!   Play again? (y/n)", "");
+                }
+                
+                
+              
+            }
+            }
+
+
+            function num() {
+                var ranNum = parseInt((Math.random() * (7 - 1)) + 1); // random # from 1-6
+                return ranNum;
+            }
+            
+        </script>
+        <table align ="center" width ="70%"><tr><td>
+                    <h1>&nbsp;</h2>
+                        <h1>Dice War</h1>
+                        <h3>Click to begin the game</h3>
+                        <h4>Win & doubles: +2 points <br/>
+                            Lose & doubles: nothing <br/>
+                            Tie: nothing <br/><br/>
+                            (GAME RESETS AFTER 100PTS)
+                        </h4>
+                        <p><input type="button" id="play" value="begin" onclick="play();" /></p>
+                </td>
+                    <p id="score"> YOU SCORE: 0</p>
+                    <p id="score2"> COMP SCORE: 0</p></tr>
+        </table></body>
+</html>
+

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Factorial Number</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script>
+            var Fac = 1;
+            var temp = 1;
+             function ask()
+            {
+               var num = prompt("Enter a positive integer",0);
+               while(num<=0)
+                  var num = prompt("Enter a positive integer",0); 
+               while(Fac < num){
+               temp = temp * (Fac+1);
+               Fac++;
+           }
+           document.write(temp);     
+            }
+        </script>
+        <h1 align ="center">Factorial Numbers</h1>
+        <p align ="center" style="font-weight:bold">Enter a positive number</p>
+        <p align ="center"><input type="button" id="we" value="Next" onclick="ask()"></p>
+        <h2 align ="center" style="color:#A00" id="print">&nbsp;</h2>
+    </body>
+</html>

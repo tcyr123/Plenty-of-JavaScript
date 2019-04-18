@@ -1,0 +1,26 @@
+<html>
+	<head>
+	<title>Grader</title>
+	<script>
+		function getGrade()
+		{
+			var grade = prompt("What's your average test score?", "0");
+			if(grade < 60)
+                            document.write("F");
+                        else if(grade >= 60 && grade <= 69.5)
+                            document.write("D");
+                        else if(grade >= 69.6 && grade <= 79.5)
+                            document.write("C");
+                        else if(grade >= 79.6 && grade <= 89.5)
+                            document.write("B");
+                        else if(grade > 89.5)
+                            document.write("A");
+		}
+	</script>
+	</<head>
+	<body>
+		<h1>What's the Grade?</h1>
+		<h3>Click the button! </h3>
+		<p><input type="button" id="temperature" value="Start" onclick="getGrade();" /></p>
+	</body>
+</html>

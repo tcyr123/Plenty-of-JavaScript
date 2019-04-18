@@ -1,0 +1,197 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+    <head>
+        <title>Example 5.17</title>
+        <script>
+            function getSquare()
+            {
+                var side = 0;
+                row = 1;
+                col = 1;
+                symbol = "* ";
+                symbol = prompt("Pick a keyboard symbol for your square, such as a * or # ", " ");
+                message = prompt("Enter message: ", " ");
+                height = prompt("Enter the height: ", " ");
+                var side = message.length;
+
+                document.write("<p align=\"center\">");
+                for (row = 1; row <= height; row++)
+                {
+                    for (col = 1; col <= side; col++)
+                    {
+                        if (row === parseInt(height / 2 + 1))
+                        {
+                            document.write('&nbsp;&nbsp;&nbsp;' + symbol + " " + message + " " + symbol);
+                            break;
+                        } else {
+                            document.write("&nbsp;&nbsp;&nbsp;");
+                            document.write(symbol + " ");
+                        }
+                    }
+                    document.write("<br />");
+                }
+                document.write("</p>");
+            }
+
+
+            function getDiamond()
+            {
+                var row = 1;
+                var base = 1;
+                var symbol = "* ";
+                var col = 0;
+                var message = "";
+                symbol = prompt("Pick a keyboard symbol for your triangle, such as a * or # ", " ");
+                base = prompt("How big is the base of your triangle? The value must be a positive number: ", " ");
+                message = prompt("Input message: ", " ");
+
+                base = parseInt(base);
+                while (base < 1)
+                {
+                    base = prompt("How big is the base of your triangle? The value must be a positive number: ", " ");
+                    base = parseInt(base);
+                }
+                document.write("<p align=\"center\">");
+                for (row = 1; row <= base; row++)
+                {
+                    for (col = 1; col <= row; col++)
+                    {
+                        if (row === base) {
+                            document.write(symbol + "&nbsp;" + message + "&nbsp" + symbol);
+                            break;
+                        } else
+                            document.write(symbol + "&nbsp;&nbsp;&nbsp;&nbsp;");
+                    }
+                    document.write("<br />");
+                }
+
+                ////// PT 2
+
+                for (var row2 = base; row2 >= 0; row2--)
+                {
+
+                    for (col2 = 1; col2 <= row2; col2++)
+                    {
+                        document.write(symbol + "&nbsp;&nbsp;&nbsp;&nbsp;");
+                    }
+                    document.write("<br />");
+                }
+                document.write("</p>");
+            }
+
+
+            function getTriangle()
+            {
+                var row = 1;
+                var base = 1;
+                var symbol = "* ";
+                var col = 0;
+                var message = "";
+                symbol = prompt("Pick a keyboard symbol for your triangle, such as a * or # ", " ");
+                base = prompt("How big is the base of your triangle? The value must be a positive number: ", " ");
+                message = prompt("Input message: ", " ");
+
+                base = parseInt(base);
+                while (base < 1)
+                {
+                    base = prompt("How big is the base of your triangle? The value must be a positive number: ", " ");
+                    base = parseInt(base);
+                }
+                document.write("<p align=\"center\">");
+                for (row = 1; row <= base; row++)
+                {
+                    for (col = 1; col <= row; col++)
+                    {
+                        if (row === parseInt(base / 2 + 1)) {
+                            document.write(symbol + message + symbol);
+                            break;
+                        } else
+                            document.write(symbol + " ");
+                    }
+                    document.write("<br />");
+                }
+                document.write("</p>");
+            }
+
+             function getInternet() {
+
+                var message = " ";
+                var symbol = prompt("Enter symbol", "");
+                 message = prompt("Enter message", "");
+                var size = message.length + 2;
+                var z = 1;
+                
+                
+                //top
+                for (var i = 0; i <= size; i++)
+                {
+                    for (var j = size; j > i; j--)
+                    {
+                        document.write("&nbsp;");
+                    }
+                    document.write(symbol);
+
+                    if (i > 0)
+                    {
+                        for (var k = 1; k <= z; k++)
+                        {
+                            document.write("&nbsp;");
+                        }
+                        
+                        z += 2;
+                        document.write(symbol);
+                    }
+                    
+                    
+                    document.write("</br>");
+                }
+                document.write(symbol + "&nbsp;&nbsp;" + message + "&nbsp;&nbsp;" + symbol);
+                document.write("</br>");
+                
+                //bottom
+                z -= 4;
+
+                for (var i = 0; i <= size - 1; i++)
+                {
+                    for (var j = 0; j <= i; j++)
+                    {
+                        document.write("&nbsp;");
+                    }
+
+                    document.write(symbol);
+
+                    for (var k = 1; k <= z; k++)
+                    {
+                        document.write("&nbsp;");
+                    }
+                    z -= 2;
+
+                    if (i !== size - 1)
+                    {
+                        document.write(symbol);
+                    }
+                    document.write("</br>")
+                    
+                }
+                
+            }
+
+                
+
+                
+
+
+        </script>
+    </<head>
+    <body>
+        <table align ="center" width ="70%"><tr><td colspan ="2">
+                    <h1>&nbsp;</h2>
+                        <h1>Shapes</h1>
+                        <h3>Pick a Shape</h3>
+                        <p><input type="button" id="square" value="Design 1 (Floor Mat)" onclick="getSquare();" /> &nbsp; &nbsp;
+                            <input type="button" id="triangle" value="Design 2 (Christmas Tree)" onclick="getTriangle();" /> &nbsp; &nbsp;
+                            <input type="button" id="rectangle" value="Design 3 (Diamond)" onclick="getInternet();" /></p>
+                </td></tr>
+        </table></body>
+</html>
+

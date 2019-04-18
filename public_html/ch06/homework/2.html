@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>GetYourInfo.com</title>
+<script>
+function customerPhone(){
+   var num2String = document.getElementById("phone").value.toString();
+   if(num2String.length !== 13 || num2String.charAt(0) !== '(' ||
+           num2String.charAt(4) !== ')' || num2String.charAt(8) !== '-' ||
+          num2String.charAt(12) > '9' || num2String.charAt(12) < '0')
+       alert("Number is not in the correct format");
+}
+</script>
+<style type="text/css">
+<!--
+body {
+	margin: 5%;
+}
+-->
+</style>
+</head>
+
+<body>
+<h2><br />Welcome to the sign in page</h2>
+<div style="width: 80%;">
+<div style="width: 40%; float: left;">
+<fieldset><legend></legend>
+<h3>Enter the following information:</h3>
+    <label>First Name:<br /></label> <input type="text" name="Fname" id="Fname" size = "30" value = ""/>
+	<br/> 
+        <br/>
+    <label>Last Name:<br /> </label><input type="text" name="Lname" id="Lname" size="30" value = ""/>
+        <br/> 
+        <br/>
+    <label>Street Address:<br /> </label><input type="text" name="Address" id="Address" size="30" value = ""/>
+        <br/> 
+        <br/>
+    <label>City:<br /> </label><input type="text" name="City" id="City" size="30" value = ""/>
+        <br/> 
+        <br/>
+    <label>Zip Code:<br /> </label><input type="text" name="Zcode" id="Zcode" size="30" value = ""/>
+        <br/> 
+        <br/>
+    <label>Email Address:<br /> </label><input type="text" name="Email" id="Email" size="30" value = ""/>
+        <br/> 
+        <br/>
+    <label>Phone Number (123)456-7890 format:<br /> </label><input maxLength="13" type="text" name="phone" id="phone"  value = ""/>
+        <br/> 
+        <br/>
+        <p><input type ="button" onclick="customerPhone();" value = "Sign In"></p><br />
+</fieldset></div>
+  </div>
+</body>
+</html>

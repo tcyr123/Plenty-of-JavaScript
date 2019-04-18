@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+  <title>Pay Calc.</title>
+<script>
+function paycheck()
+{
+ 	var rate = parseInt(prompt("What is the employee's pay rate?","0"));
+	var hours = parseInt(prompt("How many hours did the employee work this week?","0"));
+        var depend = parseInt(prompt("How many depenents?","0"));
+	if (hours > 40 && rate < 20)
+	{
+		var overtime = rate * 1.5 * (hours- 40);
+		var regular = rate * 40;
+		var pay = overtime + regular;
+	}
+	else 
+		var pay = rate * hours;
+            if(depend <= 0)
+                var pay2 = pay - (pay * (28/100));
+            else if(depend >= 1 && depend <= 3)
+                var pay2 = pay - (pay * (25/100));
+            else if(depend >= 4 && depend <= 6)
+                var pay2 = pay - (pay * (15/100));
+            else if(depend > 6)
+                var pay2 = pay - (pay * (10/100));
+   document.write("<p>Your paycheck this week will be " +"$"+ pay2 + ".</p>");
+}
+</script>
+</<head>
+<body>
+<table align ="center" width ="70%"><tr><td>
+<h1>&nbsp;</h2>
+<h1>Calculating the Paycheck</h1>
+<h3>Click the button to calculate a paycheck with a compound condition</h3>
+<p><input type="button" id="paycheck" value="calculate the paycheck" onclick="paycheck();" /></p>
+</td></tr></table></body>
+</html>
+

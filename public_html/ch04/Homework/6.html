@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Course Grade</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+        <script>
+        function getGrade()
+            {
+                var student = prompt("Enter students name:", " ");
+                var attendance = prompt("Enter the attendance score:", " ");
+                var homework = prompt("Enter the homework score:", " ");
+                var midterm = prompt("Enter the midterm grade:", " ");
+                var final = prompt("Enter the final grade:", " ");
+                document.write('<h1>&nbsp;</h1>');
+                document.write('<table widh="40%" border="1" align="center">');
+                document.write('<tr>');
+                document.write('<td width="50">' + "Student" + '</td>');
+                document.write('<td width="50">' + "Attendance" + '</td>');
+                document.write('<td width="50">' + "Homework" + '</td>');
+                document.write('<td width="50">' + "Midterm" + '</td>');
+                document.write('<td width="50">' + "Final" + '</td>');
+                document.write('<td width="50">' + "Course Grade" + '</td>');
+                document.write('</tr>');
+                while (student !== "done")
+                {
+                    document.write('<tr>');
+                    document.write('<td width="50">' + student + '</td>');
+                    document.write('<td width = "50">' + attendance + '</td>');
+                    document.write('<td width = "50">' + homework + '</td>');
+                    document.write('<td width = "50">' + midterm + '</td>');
+                    document.write('<td width = "50">' + final + '</td>');
+                    document.write('<td width = "50">' + ((attendance * 0.1) + (homework * 0.2) + (midterm * 0.3) + (final * 0.4)).toFixed(1) + '</td>');
+                    document.write('</tr>');
+                    student = prompt("Enter the name of a student or enter 'done' when you're finished:", " ");
+                    if (student === 'done') {
+                        break;
+                    }
+                    attendance = prompt("Enter the attendance score or done if finished:", " ");
+                    if (attendance === "done") {
+                        break;
+                    }
+                    homework = prompt("Enter the homework score or done if finished:", " ");
+                    if (homework === "done") {
+                        break;
+                    }
+                    midterm = prompt("Enter the midterm or done if finished:", " ");
+                    if (midterm === "done") {
+                        break;
+                    }
+                    final = prompt("Enter the final or done if finished:", " ");
+                    if (final === "done") {
+                        break;
+                    }
+                }
+                document.write('</table>');
+            }
+           </script>
+    </head>
+    <body>
+        <table align ="center" width ="70%"><tr><td colspan ="2">
+                    <h1>&nbsp;</h1>
+                    <h1>Student Grades</h1>
+                    <h3>Click to enter students' names</h3>
+                    <p><input type="button" id="student" value="Enter a student" onclick="getGrade();" /></p>
+                </td></tr>
+        </table></body>
+</html>

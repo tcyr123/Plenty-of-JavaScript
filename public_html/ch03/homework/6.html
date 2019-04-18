@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+    <head>
+        <title>Points</title>
+        <script>
+   
+function points()
+            {
+                var sword = 0;
+                var water = 0;
+                var charm = 0;
+                var phone = 0;
+                var swordAMT = 100;
+                var charmAMT = 250;
+                var phoneAMT = 500;
+                var skinAMT = 50;
+                var points = parseInt(prompt("How many points do you have?", " "));
+                while (points > 0)
+                {
+                    var question = prompt("Are you buying a sword for 100? (y/n)", " ");
+                    if (question === "y") {
+                        points-= swordAMT;
+                        if (points <= 0){
+                            alert("Out Of Points!");
+                            break;
+                        }
+                        sword++;
+                    }
+                    var question = prompt("Are you buying a gallon of water for 50? (y/n)", " ");
+                    if (question === "y") {
+                        points-= skinAMT;
+                        if (points <= 0){
+                            alert("Out Of Points!");
+                            break;
+                        }
+                        water++;
+}
+                    var question = prompt("Are you buying a charm of \n\
+                        invisibility for 250? (lasts five minutes) (y/n)", " ");
+                    if (question === "y") {
+                        points-= charmAMT;
+                        if (points <= 0){
+                            alert("Out Of Points!");
+                            break;
+                        }
+                        charm++;
+                    }
+                    var question = prompt("Are you buying a cell phone for 500? (y/n)", " ");
+                    if (question === "y") {
+                        points-= phoneAMT;
+                        if (points <= 0){
+                            alert("Out Of Points!");
+                            break;
+                        }
+                        phone++;
+                    }
+                    var question = prompt("Are you going to continue purchasing? (y/n)", " ");
+                    if (question === "n")
+                        break;
+
+                }
+
+                document.write("End of Purchasing. Congrats on buying: <br>"
+                        + sword + " Sword(s) <br>"
+                        + water + " Water Skin(s) <br>"
+                        + charm + " Invisibility Charm(s) <br>"
+                        + phone + " Cell Phone(s) ");
+            }
+
+        </script>
+    </<head>
+    <body>
+        <table align ="center" width ="70%"><tr><td>
+                    <h1>&nbsp;</h2>
+                        <h1>Choose Your Gear Wisely!)</h1>
+                        <p><input type="button" id="temperature" value="Purchase Items" onclick="points();" /></p>
+                </td></tr></table></body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Password Maker</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script>
+             function ask()
+            {
+               var pass = prompt("create a password","");
+               while (pass.length !== 8 || pass.toString().includes(" "))
+                   pass = prompt("create a password (8 chars, no spaces)","");
+               document.write("Password '" + pass + "' succesfully created!");
+               
+            }
+        </script>
+        <h1 align ="center">Create a password</h1>
+        <p align ="center" style="font-weight:bold">(Must be exactly 8 characters long / no spaces / any character is allowed)</p>
+        <p align ="center"><input type="button" id="we" value="Next" onclick="ask()"></p>
+        <h2 align ="center" style="color:#A00" id="print">&nbsp;</h2>
+    </body>
+</html>

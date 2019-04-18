@@ -1,0 +1,23 @@
+<html>
+	<head>
+	<title>Temp Conversion</title>
+	<script>
+		function getTempF2C()
+		{
+			var temp = prompt("What's the temperature today?", "degrees Fahrenheit");
+				document.write(5/9 * (temp - 32));
+		}
+                function getTempC2F()
+		{
+			var temp = prompt("What's the temperature today?", "degrees Celcius");
+				document.write((temp * 9/5) + 32);
+		}
+	</script>
+	</<head>
+	<body>
+		<h3>Choose a converter </h3>
+		<p><input type="button" id="temperature" value="Farenheit to Celcius" onclick="getTempF2C();" /></p>
+          	<p><input type="button" id="temperature" value="Celcius to Farenheit" onclick="getTempC2F();" /></p>
+
+        </body>
+</html>

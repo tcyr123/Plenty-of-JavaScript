@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style type="text/css">
+            body {
+                margin: 5%;
+                background-color: beige;
+            }
+        </style>
+        <title>Wagering Dice</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script>
+            function play() {
+                var playAgain = "y";
+                var youPTS = 0;
+                var compPTS = 0;
+                
+                while(playAgain === "y" && youPTS < 100 && compPTS < 100){
+                while(playAgain === "y" && youPTS < 100 && compPTS < 100){
+                    document.getElementById("youBet").innerHTML=("YOU BET: 0" );
+                document.getElementById("compBet").innerHTML=("COMP BET: 0");
+                    var compD1 = num();
+                    var compD2 = num();
+                    var youD1 = num();
+                    var youD2 = num();
+                    var youSum = (youD1 + youD2);
+                    var compSum = (compD1 + compD2);
+                    autoWin = false;
+                    autoLose = false;
+
+                   bet();
+  
+                   if(autoLose === true){compPTS++;
+                    document.getElementById("score2").innerHTML=("COMP SCORE: " + compPTS);
+                    alert("You auto-lost by folding"); break;}
+                    if(autoWin === true){youPTS++;
+                    document.getElementById("score").innerHTML=("YOU SCORE: " + youPTS);
+                    alert("Computer folded, you automatically win!"); break;}
+                
+                
+                        if(compD1 === compD2){
+                            compPTS++;
+                        }
+                        if(youD1 === youD2){
+                            youPTS++;
+                        }
+                        
+
+                        if(youSum > compSum){
+                            youPTS++;
+                            document.getElementById("score").innerHTML=("YOU SCORE: " + youPTS);
+                            alert("You: " + youD1 + ", " + youD2 + "\n\Comp: " + compD1 + ", " + compD2 +
+                                    "\n\YOU WIN!");
+                        }
+                        else if(youSum < compSum){
+                            compPTS++;
+                            document.getElementById("score2").innerHTML=("COMP SCORE: " + compPTS);
+                            alert("You: " + youD1 + ", " + youD2 + "\n\Comp: " + compD1 + ", " + compD2 +
+                                    "\n\YOU LOSE!");
+                        }
+                        else{
+                            alert("You: " + youD1 + ", " + youD2 + "\n\Comp: " + compD1 + ", " + compD2 +
+                                    "\n\TIE!");
+                        }
+                playAgain = prompt("play agin? (y/n)", "");
+                }
+                playAgain = prompt("play agin? (y/n)", "");
+            }
+        }
+
+            function bet(){
+                var betAMNT = prompt("How much money to bet?", "10");
+                var compAMNT = 0;
+                var compReplyNum = num2();
+                
+                if(compReplyNum === 1){
+                    //match the bet
+                    compAMNT = betAMNT;
+                    alert("computer matched your bet");
+                }
+                if(compReplyNum === 2){
+                    //fold
+                    autoWin = true;
+                }
+                if(compReplyNum === 3){
+                    //raise
+                    compAMNT = (betAMNT * 2);
+                    alert("computer raised your bet");
+                    var choice = prompt("match, raise, or fold?", "");
+                    
+                    if (choice === "match"){ betAMNT = compAMNT;}
+                    if (choice === "raise"){ betAMNT = (compAMNT * 2);}
+                    if (choice === "fold"){autoLose = true;}
+                }
+                document.getElementById("youBet").innerHTML=("YOU BET: " + betAMNT);
+                document.getElementById("compBet").innerHTML=("COMP BET: " + compAMNT);
+            }
+            
+            function num() {
+                var ranNum = parseInt((Math.random() * (7 - 1)) + 1); // random # from 1-6
+                return ranNum;
+            }
+            
+            function num2() {
+                var ranNum = parseInt((Math.random() * (4 - 1)) + 1); // random # from 1-3
+                return ranNum;
+            }
+            
+        </script>
+        <table bgcolor="lightgreen" align ="center" width="40%"><tr><td>
+                    <h1>&nbsp;</h2>
+                        <h1>Dice War</h1>
+                        <h3>Click to begin the game</h3>
+                        <h4>Win & doubles: +2 points <br/>
+                            Lose & doubles: nothing <br/>
+                            Tie: nothing <br/><br/>
+                            (GAME RESETS AFTER 100PTS)
+                        </h4>
+                        <p><input type="button" id="play" value="begin" onclick="play();" /></p>
+                </td>
+                <td>
+                    <p id="score"> YOU SCORE: 0</p>
+                    <p id="score2"> COMP SCORE: 0</p>
+            <br/>
+                    <p id="youBet"> YOU BET: 0</p>
+                    <p id="compBet"> COMP BET: 0</p></td></tr>
+        </table></body>
+</html>
+

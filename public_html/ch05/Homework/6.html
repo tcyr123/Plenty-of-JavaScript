@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Coin Toss</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script>
+            function coin() {
+                var playAgain = "y";
+                var side;
+
+                while (playAgain.toString().toLowerCase() === "y")
+                {
+                    document.getElementById("tails").style="display: inline";
+                    document.getElementById("heads").style="display: inline";
+                    
+                    var ran = parseInt(Math.random() * 2);
+                    if (ran === 0)
+                        side = "heads";
+                    else
+                        side = "tails";
+
+                    var ans = prompt("heads or tails?", "");
+                    if (ans.toString().toLowerCase() === side)
+                        alert("you win!");
+                    else if (ans.toString().toLowerCase() !== side)
+                        alert("you lose!");
+                    else
+                        alert("invalid answer");
+
+                    if (side === "heads")
+                        document.getElementById("tails").style = "display: none";
+                    else
+                        document.getElementById("heads").style = "display: none";
+
+                    playAgain = prompt("Play again? (y/n)", "");
+
+                }
+            }
+        </script>
+        <table align ="center" width ="70%"><tr><td>
+                    <h1>&nbsp;</h2>
+                        <h1>Play Coin Flip</h1>
+                        <h3>Click to begin the game</h3>
+                        <p><input type="button" id="coin" value="begin" onclick="coin();" /></p>
+                        <img id ="heads" src="PennyH.jpg" width="75" height="75">
+                        <img id ="tails" src="PennyT.jpg" width="75" height="75">
+                        </td></tr>
+                        </table></body>
+                        </html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Guessing Game</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script>
+            function game()
+            {
+                var score = 0;
+                var games= 0;
+                var ans2 = "y";
+                while(ans2.toString().toLowerCase() === "y"){
+                    games++;
+                    var ran = parseInt((Math.random() * 100 - 1) + 1);
+                    var guessAmount = prompt("How many guesses would you like","");
+                    var ans = 0;
+                        while(guessAmount > 0)
+                        {
+                             ans = prompt("Guess the number (1-100)", "");
+                             if(ans<ran)
+                                 document.write("The random number is higher than " + ans + "&nbsp; -->" + guessAmount + " guesses left" + "</br>");
+                             else if(ans>ran)
+                                 document.write("The random number is lower than " + ans + "&nbsp; -->" + guessAmount + " guesses left" + "</br>");
+                             else{
+                                 alert("Thats it! The number was " + ran);
+                                 score++;
+                                 break;
+                             }
+                             guessAmount--;
+                             if(guessAmount == 0)
+                                 alert("You lost! The number was " + ran);
+                        }
+                        alert("score: " + score + "/" + games);
+                        var ans2 = prompt("Play again? (y/n)","");
+                }
+        }
+        </script>
+        <table align ="center" width ="70%"><tr><td>
+<h1>&nbsp;</h2>
+<h1>Play the Guessing Game</h1>
+<h3>Click to begin</h3>
+<p><input type="button" id="game" value="begin" onclick="game();" /></p>
+</td></tr>
+</table></body>
+</html>

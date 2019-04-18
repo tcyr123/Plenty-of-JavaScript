@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Greg's Gambits</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script>
+            function play() {
+                var playAgain = "y";
+                var side;
+                var cardNum;
+                var cardSuit;
+                var score = 0; 
+                var games = 0;
+
+                while (playAgain.toString().toLowerCase() === "y")
+                {
+                    //Clear all images from previous game
+                    var images = document.getElementsByTagName('img');
+                    var l = images.length;
+                    for (var i = 0; i < l; i++) {
+                        images[0].parentNode.removeChild(images[0]);
+                    }
+                    //Creating the players original cards
+                    var card1 = (card() + " of " + suit());
+                    var c1Num = parseInt(card1.substr(0, 2).trim());
+                    var c1Array = card1.split(" ");
+                    var lastWord1 = c1Array[c1Array.length - 1];
+
+                    var card2 = (card() + " of " + suit());
+                    var c2Num = parseInt(card2.substr(0, 2).trim());
+                    var c2Array = card2.split(" ");
+                    var lastWord2 = c2Array[c2Array.length - 1];
+
+                    var cardList = (card1 + " and " + card2);
+
+                    //Creating the dealers hand
+                    var dCard1 = (card() + " of " + suit());
+                    var dCard2 = (card() + " of " + suit());
+                    var dC1Array = dCard1.split(" ");
+                    var lastWordDC1 = dC1Array[dC1Array.length - 1];
+                    var dC2Array = dCard2.split(" ");
+                    var lastWordDC2 = dC2Array[dC2Array.length - 1];
+                    var dCardTotal = (parseInt(dCard2.substr(0, 2).trim()) +
+                            parseInt(dCard1.substr(0, 2).trim()));
+                    
+                    //printing dedalers 2 backsides
+                    document.write("<img src=\"images/dealer.jpg\" width=\"125\" height=\"125\" >");
+                    document.write("<img src=\"images/green_back.png\" id=\"dBack1\" width=\"125\" height=\"125\" >");
+                    document.write("<img src=\"images/green_back.png\" id=\"dBack2\" width=\"125\" height=\"125\" > </br></br></br>");
+
+                    //printing players cards
+                    document.write("<img src=\"images/you.png\" width=\"125\" height=\"125\" >");
+                    document.write("<img src=\"images/" + c1Num.toString() + lastWord1.toString().charAt(0) + ".png" + "\" width=\"125\" height=\"125\" >");
+                    document.write("<img src=\"images/" + c2Num.toString() + lastWord2.toString().charAt(0) + ".png" + "\" width=\"125\" height=\"125\" >");
+                    alert("Your cards are: " + cardList);
+
+                    //adding additional cards if necessary to the players hand
+                    var choice = prompt("hit or stay?", "");
+                    var cardExtraNum = 0;
+                    while (choice === "hit") {
+                        var cardExtra = (card() + " of " + suit());
+                        var cardExtraArray = cardExtra.split(" ");
+                        var lastWordExtra = cardExtraArray[cardExtraArray.length - 1];
+                        cardExtraNum += Number(cardExtra.substr(0, 2).trim());
+                        cardList += " and " + cardExtra;
+                        document.write("<img src=\"images/" + cardExtra.substr(0, 2).trim() + lastWordExtra.toString().charAt(0) + ".png" + "\" width=\"125\" height=\"125\" >");
+                        alert("Your cards are: " + cardList);
+                        choice = prompt("hit or stay?", "");
+                    }
+                    //showing dealers cards
+                    document.getElementById("dBack1").src="images/" + dCard1.substr(0, 2).trim() + lastWordDC1.toString().charAt(0) + ".png" ; 
+                    document.getElementById("dBack2").src="images/" + dCard2.substr(0, 2).trim() + lastWordDC2.toString().charAt(0) + ".png" ;
+                    //The comparisson test & the test for >21
+                    var total = c1Num + c2Num + cardExtraNum;
+                    if(dCardTotal > 21)
+                        alert("Your total: " + total + "\n" +
+                                    "Dealers total: " + dCardTotal + "\n YOU WIN!");
+                    if (total > 21)
+                        alert("Your total: " + total + "\n" +
+                                "YOU LOSE!");
+                    else {
+                        if (total > dCardTotal){
+                            alert("Your total: " + total + "\n" +
+                                    "Dealers total: " + dCardTotal + "\n YOU WIN!");
+                        score++;}
+                        else if (total < dCardTotal)
+                            alert("Your total: " + total + "\n" + "Dealers total: " + dCardTotal + "\n YOU LOSE!");
+                        else{
+                            alert("Your total: " + total + "\n" + "Dealers total: " + dCardTotal + "\n TIE!");
+                            score++;}
+                    }
+                    games++;
+                    playAgain = prompt("Play again? (y/n)", "");
+                }
+                alert("Your Score: " + score + " / " + games);
+            }
+
+
+            function suit() {
+                var ranSuit = parseInt(Math.random() * 4); //random suit (0-3)
+
+                //Names the Random Suit
+                switch (ranSuit) {
+                    case 0:
+                        return "spades";
+                        break;
+                    case 1:
+                        return "clubs";
+                        break;
+                    case 2:
+                        return "diamonds";
+                        break;
+                    case 3:
+                        return "hearts";
+                        break;
+                }
+            }
+            function card() {
+                var ranNum = parseInt((Math.random() * (12 - 2)) + 2); // random # from 2-11
+                return ranNum;
+            }
+        </script>
+        <table align ="center" width ="70%"><tr><td>
+                    <h1>&nbsp;</h2>
+                        <h1>Play 21</h1>
+                        <h3>Click to begin the game</h3>
+                        <p><input type="button" id="play" value="begin" onclick="play();" /></p>
+                </td></tr>
+        </table></body>
+</html>
